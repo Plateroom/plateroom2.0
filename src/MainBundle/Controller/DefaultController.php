@@ -10,8 +10,8 @@ class DefaultController extends Controller
     /**
      * @Route("/")
      */
-    public function indexAction()
+    public function landingAction()
     {
-        return $this->render('MainBundle:Default:index.html.twig');
+        return $this->render('MainBundle:Default:landing.html.twig');
     }
 }

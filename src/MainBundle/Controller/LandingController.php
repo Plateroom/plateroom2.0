@@ -7,14 +7,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LandingController extends Controller
 {
-  /**
-   * @param Request $request
-   * @return \Symfony\Component\HttpFoundation\Response
-   */
-  public function loginAction(Request $request)
-  {
 
-     return $this->render('MainBundle:Landing:landing.html.twig', [
+    public function landingAction()
+    {
+        return $this->render('MainBundle:Landing:landing.html.twig');
+    }
 
-      ]);
 }
