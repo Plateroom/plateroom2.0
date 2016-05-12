@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link href="/css/stylecruz.css" rel="stylesheet">
+</head>
+<body>
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    {% block fos_user_content %}
+    {% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="page-login">
+        <header>
+            <strong> Plateroom  </strong> utilizza i cookie per offrirti la migliore esperienza possibile. <strong> Ulteriori info </strong>Ok!
+        </header>
+
+        <div class="form Allcontenuto">
+            <div id="circle">
+                <span class="glyphicon glyphicon-asterisk" id="asterisco" style="color: #748F80; font-size: 250%; margin: 20% 0 0 0; padding-left: 21%;"> </span>
+            </div>
+            <form class ="login" action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                <div class="cruz">
+                    <p class="pro" style="font-size: 30px"> Plateroom</p>
+                    <p style="font-size: 17px">Scegli i tuoi piatti preferiti e richiedili dove vuoi</p>
+                    <p style="font-size: 10px">powered by Solaris</p>
+                </div>
+                <div class="fb-login">
+                    <img src="img/facebook.jpg" class="fb-logo">
+                </div>
+                <ul>
+                    <li style="border-top: 1px solid white" >
+                        <input class="mailbox" placeholder="Email Aziendale"  type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    </li>
+                    <li>
+                        <input class="password" id="password" type="password" name="_password" placeholder= "Password"required="required" />
+                    </li>
+                    <li>
+                        <input type="submit" class="bottonelog" id="_submit" name="_submit"  value="{{ 'Login'|trans }}" />
+                    </li>
+                    <li class="checkbox">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> Remember Me
+                    </li>
+
+                            <a href="{{ url('fos_user_resetting_request') }}" id="dimenticata">Password dimenticata?</a>
+                        </ul>
+                              <div class="modal fade" id="myModalpassw" data-toggle="modal" data-target="#myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="termini">
+                            <p id="riga1">Creando un account, accetti i Termini di servizio, le Norme sulla</p>
+                            <p id="riga2">privacy e l'utilizzo dei cookie di Plateroom</p>
+                        </div>
+                    </form>
+                </ul>
+        <div class="fondo-pagina">
+            <p class="privacy">Privacy e Termini</p> <p class="privacy"> &nbsp &nbsp &nbsp Info e Contatti</p>
+        </div>
+    </div>
+    {% endblock fos_user_content %}
+</body>
+</html>
