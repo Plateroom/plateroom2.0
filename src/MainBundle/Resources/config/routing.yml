@@ -1,3 +1,55 @@
-landing:
-    path:     /
+main_landing:
+    path:     /landing
     defaults: { _controller: MainBundle:Landing:landing }
+
+main_home:
+    path:     /
+    defaults: { _controller: MainBundle:Home:home }
+
+main_plate:
+    path:     /plate
+    defaults: { _controller: MainBundle:Plate:plate }
+
+main_plate_lista:
+    path:     /lista_plate
+    defaults: { _controller: MainBundle:Plate:list }
+
+main_plate_crea:
+    path:     /plate/crea
+    defaults: { _controller: MainBundle:Plate:create }
+
+main_ricette_lista:
+    path:     /lista_ricette
+    defaults: { _controller: MainBundle:Ricetta:list }
+
+main_ricetta:
+    path:     /ricetta
+    defaults: { _controller: MainBundle:Ricetta:ricetta }
+
+main_ricetta_crea:
+    path:     /ricetta/crea
+    defaults: { _controller: MainBundle:Ricetta:create }
+
+main_ricetta_modifica:
+    path:     /ricetta/edit
+    defaults: { _controller: MainBundle:Ricetta:edit }
+
+main_ricetta_delete:
+    path:     /ricetta/delete
+    defaults: { _controller: MainBundle:Ricetta:delete }
+
+main_user:
+    path:     /user
+    defaults: { _controller: MainBundle:User:user }
+
+main_user_lista:
+    path:     /lista_user
+    defaults: { _controller: MainBundle:User:list }
+
+main_user_modifica:
+    path:     /user/edit
+    defaults: { _controller: MainBundle:User:edit }
+
+main_user_delete:
+    path:     /user/delete
+    defaults: { _controller: MainBundle:User:delete }

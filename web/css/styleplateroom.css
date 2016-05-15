@@ -1,4 +1,4 @@
-
+/* navbar*/
 .navbar-default {
   width: 100%;
   position: fixed-top;
@@ -42,3 +42,9 @@
   border-color: #F57474 !important;
 
 }
+
+
+/*masonry */
+
+.grid-item { width: 200px; }
+.grid-item--width2 { width: 400px; }
