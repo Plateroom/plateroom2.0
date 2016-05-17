@@ -2,6 +2,7 @@
 
 namespace MainBundle\Entity;
 
+use MainBundle\Entity\User;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -16,8 +17,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="Ricetta")
  * @ORM\Entity(repositoryClass="MainBundle\Repository\RicettaRepository")
  * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks()
  */
-
 class Ricetta
 {
     /**
@@ -53,7 +54,7 @@ class Ricetta
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="sala_image", fileNameProperty="immagineUrl")
+     * @Vich\UploadableField(mapping="ricetta_image", fileNameProperty="immagineUrl")
      *
      * @var File
      */
@@ -61,16 +62,15 @@ class Ricetta
 
      /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="ricettaUser")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     /**
-     * @var int
+     * @var Citta
      *
-     * @ORM\Column(name="id_citta", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Citta", inversedBy="ricetteCitta")
      */
-    private $idCitta;
+    private $citta;
 
     /**
      * @var \DateTime
@@ -91,8 +91,7 @@ class Ricetta
      */
     public function __construct()
     {
-        parent::__construct();
-        $this->plateRicetta = new ArrayCollection();
+        $this->Ricetta = new ArrayCollection();
     }
 
 
@@ -108,8 +107,6 @@ class Ricetta
     {
         return $this->plateRicetta;
     }
-
-
 
     /**
      * Get id
@@ -170,39 +167,43 @@ class Ricetta
     }
 
     /**
-     * Set imageUrl
+     * Set immagineUrl
      *
-     * @param string $imageUrl
+     * @param string $immagineUrl
      *
      * @return Ricetta
      */
-    public function setImageUrl($imageUrl)
+    public function setImmagineUrl($immagineUrl)
     {
-        $this->imageUrl = $imageUrl;
+        $this->immagineUrl = $immagineUrl;
 
         return $this;
     }
 
     /**
-     * Get imageUrl
+     * Get immagineUrl
      *
      * @return string
      */
-    public function getImageUrl()
+    public function getImmagineUrl()
     {
-        return $this->imageUrl;
+        return $this->immagineUrl;
     }
 
     /**
-     * Set imageFile
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
      *
-     * @param string $imageFile
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
      *
      * @return Ricetta
      */
-    public function setImageFile($imageFile)
+    public function setImageFile(File $image = null)
     {
-        $this->imageFile = $imageFile;
+        $this->imageFile = $image;
 
         return $this;
     }
@@ -218,51 +219,51 @@ class Ricetta
     }
 
     /**
-     * Set idUser
+     * Set User
      *
-     * @param integer $idUser
+     * @param User $User
      *
      * @return Ricetta
      */
-    public function setIdUser($idUser)
+    public function setUser($user)
     {
-        $this->idUser = $idUser;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get idUser
+     * Get User
      *
-     * @return int
+     * @return User
      */
-    public function getIdUser()
+    public function getUser()
     {
-        return $this->idUser;
+        return $this->user;
     }
 
     /**
-     * Set idCitta
+     * Set citta
      *
-     * @param integer $idCitta
+     * @param Citta $citta
      *
      * @return Ricetta
      */
-    public function setIdCitta($idCitta)
+    public function setCitta($citta)
     {
-        $this->idCitta = $idCitta;
+        $this->citta = $citta;
 
         return $this;
     }
 
     /**
-     * Get idCitta
+     * Get citta
      *
-     * @return int
+     * @return Citta
      */
-    public function getIdCitta()
+    public function getCitta()
     {
-        return $this->idCitta;
+        return $this->citta;
     }
 
     /**
@@ -287,6 +288,14 @@ class Ricetta
     public function getDataCreazione()
     {
         return $this->dataCreazione;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setDataCreazioneValue()
+    {
+        $this->dataCreazione = new DateTime();
     }
 }
 

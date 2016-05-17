@@ -7,20 +7,19 @@ main_home:
     defaults: { _controller: MainBundle:Home:home }
 
 main_plate:
-    path:     /plate
+    path:     /plate/{id}
     defaults: { _controller: MainBundle:Plate:plate }
 
-main_plate_lista:
-    path:     /lista_plate
-    defaults: { _controller: MainBundle:Plate:list }
-
 main_plate_crea:
-    path:     /plate/crea
+    path:     /plate/crea/{id}
     defaults: { _controller: MainBundle:Plate:create }
+    # requirements:
+    #     id: \+d
 
-main_ricette_lista:
-    path:     /lista_ricette
-    defaults: { _controller: MainBundle:Ricetta:list }
+
+main_plate_lista:
+    path:     /plate/list
+    defaults: { _controller: MainBundle:Plate:list }
 
 main_ricetta:
     path:     /ricetta
@@ -38,13 +37,13 @@ main_ricetta_delete:
     path:     /ricetta/delete
     defaults: { _controller: MainBundle:Ricetta:delete }
 
+main_ricette_lista:
+    path:     /ricetta/list
+    defaults: { _controller: MainBundle:Ricetta:list }
+
 main_user:
     path:     /user
     defaults: { _controller: MainBundle:User:user }
-
-main_user_lista:
-    path:     /lista_user
-    defaults: { _controller: MainBundle:User:list }
 
 main_user_modifica:
     path:     /user/edit
@@ -53,3 +52,7 @@ main_user_modifica:
 main_user_delete:
     path:     /user/delete
     defaults: { _controller: MainBundle:User:delete }
+
+main_user_lista:
+    path:     /user/list
+    defaults: { _controller: MainBundle:User:list }

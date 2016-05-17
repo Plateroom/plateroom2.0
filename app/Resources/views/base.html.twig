@@ -5,16 +5,22 @@
         <title>{% block title %}Plateroom{% endblock %}</title>
         {% block stylesheets %}
         <!-- stylesheet bootstrap -->
-        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+        <!-- stylesheet materialize -->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.min.css')}}">
         <link href="{{asset('css/styleplateroom.css')}}" rel="stylesheet">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     </head>
     <body>
+
+ 
         {% block header%}
+
               <!-- Navigation -->
-<nav class="navbar navbar-default">
+<nav class="nav-wrapper">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -30,52 +36,72 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+        <li class="divider-vertical"></li>
+        <li><a class="waves-effect waves-light btn-large">Categorie</a></li>  
+        
+        <li class="divider-vertical"></li>
+      <li>
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="cerca"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
+      </li>
+    </ul>
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">{{ app.user.username }}</a></li>
+        <li><a href="{{ url('fos_user_profile_edit') }}">Modifica</a></li>
+        <li class="divider"></li>
+        <li><a href="{{ url('fos_user_security_logout')}}">Log out</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ app.user.username }}</a></li>
       </ul>
+
+     {% else %}
+     <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+    {% endif %}
+
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 
+  <!-- Modal-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
 
         {% endblock %}
-        {% block body %}{% endblock %}
+    {% block body %}
+        {% endblock %}
+
+  {% block footer%}
+  <div class="row footer">
+    <div class="col-xs-12 col-md-12 text-center">
+      
+  <a href="{{ url('main_ricetta_crea') }}" class="waves-effect waves-circle waves-light btn-floating secondary-content">
+    <i class="material-icons">add</i>
+  </a>
+    </div>
+  </div>
+  {% endblock %}
         {% block javascripts %} 
           <script src="/js/masonry.pkgd.min.js"></script>
             <script src="/js/jquery-1.12.3.js"></script>
             <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/materialize.min.js"></script>
         {% endblock %}
+
     </body>
 </html>

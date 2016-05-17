@@ -24,7 +24,6 @@ class User extends BaseUser
      */
     protected $id;
 
-
     /**
      * Get id
      *
@@ -35,14 +34,22 @@ class User extends BaseUser
         return $this->id;
     }
 
-
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=255)
+     */
+    private $nome;
 
     /**
      * @ORM\OneToMany(targetEntity="Plate", mappedBy="user")
      */
     private $plateUser;
 
+     /**
+      * @ORM\OneToMany(targetEntity="Ricetta", mappedBy="user")
+      */
+    private $ricetteUser;
 
     /**
      * User constructor
@@ -51,21 +58,54 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->plateUser = new ArrayCollection();
+        $this->ricetteUser = new ArrayCollection();
     }
 
+    /**
+     * Set nome
+     *
+     * @param string $nome
+     *
+     * @return User
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
 
-       public function setPlateUser($plateUser)
+        return $this;
+    }
+
+    /**
+     * Get nome
+     *
+     * @return string
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    public function setPlateUser($plateUser)
     {
         $this->plateUser = $plateUser;
 
         return $this;
     }
 
-
     public function getPlateUser()
     {
         return $this->plateUser;
     }
 
+    public function setRicetteUser($ricetteUser)
+    {
+        $this->ricetteUser = $ricetteUser;
 
+        return $this;
+    }
+
+    public function getRicetteUser()
+    {
+        return $this->ricetteUser;
+    }
 }

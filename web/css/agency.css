@@ -27,12 +27,7 @@ h2 {
 }
 
 #spinner-show {
-  font-size: 30px;
-  font-weight: 300;
-  font-family: 'Roboto Slab', serif;
-  color: #16a085;
   display: inline-block;
-  text-transform: uppercase;
   -webkit-transition: width 0.6s ease-out;
   -moz-transition: width 0.6s ease-out;
   -o-transition: width 0.6s ease-out;
@@ -113,8 +108,6 @@ h2 {
   display: none;
   position relative
   list-style none
-  text-transform uppercase
-  font-size 30px
   width 286px
   display inline-block
   font-size 30px
@@ -523,7 +516,7 @@ h2 {
 }
 
 .text-primary {
-    color: #fed136;
+    color: #f0d39b;
 }
 
 p {
@@ -544,7 +537,7 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: #f0d39b;
 }
 
 a:hover,
@@ -571,9 +564,10 @@ h6 {
 
 .bg-light-gray {
 
-   background-image: url("../img/cloth_alike.png");
+   /*background-image: url("../img/cloth_alike.png");*/
 
-    /*background-color: #f7f7f7;*/
+   background-color: #f7f7f7;
+   padding-top: 100px;
 }
 
 .bg-dark-gray {
@@ -586,12 +580,12 @@ h6 {
 }
 
 .btn-primary {
-    border-color: #fed136;
+    border-color: #f0d39b;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #fff;
-    background-color: #fed136;
+    background-color: #f0d39b;
 }
 
 .btn-primary:hover,
@@ -625,18 +619,18 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #fed136;
-    background-color: #fed136;
+    border-color: #f0d39b;
+    background-color: #f0d39b;
 }
 
 .btn-primary .badge {
-    color: #fed136;
+    color: #f0d39b;
     background-color: #fff;
 }
 
 .btn-xl {
     padding: 20px 40px;
-    border-color: #fed136;
+    border-color: #f0d39b;
     border-radius: 3px;
     text-transform: uppercase;
     font-family: "Hero Light";
@@ -679,12 +673,12 @@ fieldset[disabled] .btn-xl:active,
 .btn-xl.disabled.active,
 .btn-xl[disabled].active,
 fieldset[disabled] .btn-xl.active {
-    border-color: #fed136;
-    background-color: #fed136;
+    border-color: #f0d39b;
+    background-color: #f0d39b;
 }
 
 .btn-xl .badge {
-    color: #fed136;
+    color: #f0d39b;
     background-color: #fff;
 }
 
@@ -695,7 +689,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-brand {
     font-family: "amelia";
-    color: #fed136;
+    color: #f0d39b;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -710,8 +704,8 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #fed136;
-    background-color: #fed136;
+    border-color: #f0d39b;
+    background-color: #f0d39b;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -720,7 +714,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #fed136;
+    background-color: #f0d39b;
 }
 
 .navbar-default .nav li a {
@@ -734,13 +728,13 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
     outline: 0;
-    color: #fed136;
+    color: #f0d39b;
 }
 
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
     color: #fff;
-    background-color: #fed136;
+    background-color: #f0d39b;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
@@ -772,7 +766,7 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default.navbar-shrink {
         padding: 10px 0;
-        background-color: #222;
+        background-color: rgba(0,0,0,0.7);
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
@@ -827,10 +821,11 @@ header .intro-text .intro-heading {
     text-align: center;
     color: #fff; 
     margin-bottom: 10px;
-    font-family: "Hero";
+    font-family: "Hero Light";
     font-size: 40px;
     font-weight: 700;
     line-height: 40px;
+    text-transform: uppercase;
 }
 
 @media(min-width:768px) {
@@ -1034,7 +1029,7 @@ section h3.color {
     border-radius: 100%;
     text-align: center;
     color: #fff;
-    background-color: #fed136;
+    background-color: #f0d39b;
 }
 
 .timeline>li .timeline-image h4 {
@@ -1219,7 +1214,7 @@ section#contact .form-group textarea.form-control {
 }
 
 section#contact .form-control:focus {
-    border-color: #fed136;
+    border-color: #f0d39b;
     box-shadow: none;
 }
 
@@ -1297,7 +1292,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-    background-color: #fed136;
+    background-color: #f0d39b;
 }
 
 .btn:focus,
@@ -1380,12 +1375,12 @@ ul.social-buttons li a:active {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #fed136;
+    background: #f0d39b;
 }
 
 ::selection {
     text-shadow: none;
-    background: #fed136;
+    background: #f0d39b;
 }
 
 img::selection {
@@ -1397,7 +1392,7 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: #fed136;
+    webkit-tap-highlight-color: #f0d39b;
 }
 
 /* My Custom Style*/

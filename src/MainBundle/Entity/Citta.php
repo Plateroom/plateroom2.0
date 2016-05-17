@@ -45,32 +45,44 @@ class Citta
 
 
     /**
+     * @ORM\OneToMany(targetEntity="Ricetta", mappedBy="citta")
+     */
+    private $ricetteCitta;
+
+    /**
      * Citta constructor
      */
     public function __construct()
     {
         parent::__construct();
         $this->plateCitta = new ArrayCollection();
+        $this->ricetteCitta = new ArrayCollection();
     }
 
 
-       public function setPlateCitta($plateCitta)
+    public function setPlateCitta($plateCitta)
     {
         $this->plateCitta = $plateCitta;
 
         return $this;
     }
 
-
     public function getPlateCitta()
     {
         return $this->plateCitta;
     }
 
+    public function setRicetteCitta($ricetteCitta)
+    {
+        $this->ricetteCitta = $ricetteCitta;
 
+        return $this;
+    }
 
-
-
+    public function getRicetteCitta()
+    {
+        return $this->ricetteCitta;
+    }
 
     /**
      * Get id

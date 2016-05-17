@@ -10,7 +10,10 @@ class HomeController extends Controller
 
     public function homeAction()
     {
-        return $this->render('MainBundle:Home:home.html.twig');
-    }
+        $ricette = $this->getDoctrine()->getRepository('MainBundle:Ricetta')->findAll();
 
+        return $this->render('MainBundle:Home:home.html.twig', [
+            'ricette' => $ricette,
+        ]);
+    }
 }

@@ -58,7 +58,7 @@
                             <a class="page-scroll" href="#services">paese che vai..</a>
                         </li>
                         <li class="">
-                            <a class="page-scroll" href="{{ url('main_home')}}">Scopri</a>
+                            <a class="page-scroll" href="{{ url('fos_user_security_login')}}">Login</a>
                         </li>                        
                         <li class="active">
                         <a class="page-scroll" href="{{ url('fos_user_registration_register')}}">Registrati</a>
@@ -74,16 +74,16 @@
         <header>
             <div class="container">
 
-             <!--    <video autoplay loop controls muted="video/master-plateroom.jpg" id="bgvid">
+               <video autoplay loop controls muted="video/master-plateroom.jpg" id="bgvid">
                    <source src="http://localhost:8000/videos.php?src=./video/master-plateroom.webm" type="video/webm">
                     <source src="http://localhost:8000/videos.php?src=./video/master-plateroom.mp4" type="video/mp4">
                     Il tuo browser non supporta il video</code> element.
-                </video>-->
+                </video>
 
                 <div class="intro-text">
-                    <div class="intro-heading">è <font= "amelia"> PRONTO </font> in TAVOLA</div>
+                    <div class="intro-heading">è pronto in tavola</div>
                     <div class="intro-lead-in">Cerca e richiedi i tuoi piatti preferiti vicino a te</div>
-                    <a href="#" class="btn btn-xl">Registrati</a>
+                    <a href="{{ url('main_home')}}" class="btn btn-xl">Scopri</a>
 
                 </div>
             </div>
@@ -123,7 +123,6 @@
                                     <li>carne</li>
                                     <li>dolce</li>
                                     <li>secondi piatti</li>
-                                    <li>creme</li>
                                     <li>brodo</li>
                                     <li>pasta</li>
                                     <li>pesce</li>

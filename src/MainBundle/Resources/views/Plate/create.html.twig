@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}MainBundle:Plate:create{% endblock %}
+
+{% block body %}
+Ciao {{ user.username }}, stai creando un nuovo pin per la ricetta {{ ricetta.nome }}.
+
+{{ form_start(form) }}
+  {{ form_widget(form) }}
+{{ form_end(form) }}
+
+{% endblock %}

@@ -2,10 +2,17 @@
 {% block body %}
 
 <div class="grid">
-  <div class="grid-item">...</div>
-  <div class="grid-item grid-item--width2">...</div>
-  <div class="grid-item">...</div>
-  ...
+  {% for ricetta in ricette %}
+    <div class="grid-item">{{ ricetta.nome }}
+      <p>Plate totali {{ ricetta.plateRicetta|length + 1 }}</p>
+      <ul>
+        <li>{{ ricetta.citta.nome }}</li>
+      {% for plate in ricetta.plateRicetta %}
+        <li>{{ plate.citta.nome }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
 </div>
 
 {% endblock %}
