@@ -78,6 +78,12 @@ nav .input-field label i {
 
 
 /*masonry */
+.grid {
+  margin: 0 5em;
+}
 
-.grid-item { width: 200px; }
-.grid-item--width2 { width: 400px; }
+.grid-sizer, .grid-item {
+  float: left;
+  width: 18%;
+  margin: 1%;
+}

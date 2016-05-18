@@ -20,8 +20,10 @@ class PlateController extends Controller
 
     public function listAction()
     {
+      $plate = $this->getDoctrine()->getRepository('MainBundle:Plate')->findAll();
+
         return $this->render('MainBundle:Plate:list.html.twig', array(
-            // ...
+            'plates' => $plate,
         ));
     }
 

@@ -1,18 +1,43 @@
 {% extends "::base.html.twig" %}
+
 {% block body %}
+  <div class="grid">
+    {% for ricetta in ricette %}
+      <div class="card grid-item" >
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">
+            {{ ricetta.nome }} <i class="material-icons right">more_vert</i>
+          </span>
+          <ul>
+            <li>Creata da {{ ricetta.user }} a {{ ricetta.citta.nome }}</li>
 
-<div class="grid">
-  {% for ricetta in ricette %}
-    <div class="grid-item">{{ ricetta.nome }}
-      <p>Plate totali {{ ricetta.plateRicetta|length + 1 }}</p>
-      <ul>
-        <li>{{ ricetta.citta.nome }}</li>
-      {% for plate in ricetta.plateRicetta %}
-        <li>{{ plate.citta.nome }}</li>
-      {% endfor %}
-      </ul>
-    </div>
-  {% endfor %}
-</div>
-
+            {% for plate in ricetta.plateRicetta %}
+              <li>{{ plate.citta.nome }}</li>
+            {% endfor %}
+          </ul>
+          <p><!-- Modal Trigger -->
+           <!-- <a href="{{ url('main_ricetta', {id: ricetta.id})}}">Scopri</a> -->
+          </p>
+          <p>Richieste {{ ricetta.plateRicetta|length + 1 }}</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">
+            {{ ricetta.nome }} <i class="material-icons right">close</i>
+          </span>
+          <p>ingredienti principali</p>                    
+                    <div class="collection">
+                      <a href="#!" class="collection-item">Test</a>
+                      <a href="#!" class="collection-item active">Test</a>
+                      <a href="#!" class="collection-item">Test</a>
+                      <a href="#!" class="collection-item">Test</a>
+                    </div>
+            </div>
+            </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}

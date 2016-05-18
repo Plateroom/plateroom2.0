@@ -22,7 +22,7 @@ main_plate_lista:
     defaults: { _controller: MainBundle:Plate:list }
 
 main_ricetta:
-    path:     /ricetta
+    path:     /ricetta/{id}
     defaults: { _controller: MainBundle:Ricetta:ricetta }
 
 main_ricetta_crea:
@@ -30,11 +30,11 @@ main_ricetta_crea:
     defaults: { _controller: MainBundle:Ricetta:create }
 
 main_ricetta_modifica:
-    path:     /ricetta/edit
+    path:     /ricetta/{id}/edit
     defaults: { _controller: MainBundle:Ricetta:edit }
 
 main_ricetta_delete:
-    path:     /ricetta/delete
+    path:     /ricetta/{id}/delete
     defaults: { _controller: MainBundle:Ricetta:delete }
 
 main_ricette_lista:

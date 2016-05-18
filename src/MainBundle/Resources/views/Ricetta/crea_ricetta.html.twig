@@ -1,47 +1,43 @@
-<div class="container-modal ">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-    </button>
-      <h4 class="modal-title" id="gridSystemModalLabel">Crea Ricetta</h4>
-  </div>
-  <div class="modal-body">
-    <div class="row content-img">
-        <div class="col-xs-offset-1 col-md-offset-1 col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading"></div>
-            <div class="panel-body"></div>
-          </div>
-        </div>
+<div class="modal-header">
+  <span class="modal-action modal-close" aria-hidden="true">&times;</span>
+  <h4 class="modal-title" id="gridSystemModalLabel">Crea Ricetta</h4>
+</div>
+
+<div class="modal-body">
+  <div class="row content-img">
+    <div class="col-xs-offset-1 col-md-offset-1 col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body"></div>
+      </div>
     </div>
-
-    <hr>
-{{ form_start(form, {'action': path('main_ricetta_crea')} )}}
-
-
-      <div class="form-group">
-        <label for="recipient-name" class="control-label">Nome:</label>
-        {{ form_row(form.nome, {'attr': {'class': 'form-control','id': 'recipient-name' }}) }}
-      </div>
-
-
-
-      <div class="form-group">
-        <label for="recipient-name" class="control-label">Città:</label>
-        {{ form_row(form.citta, {'attr': {'class': 'form-control','id': 'recipient-name' }}) }}
-      </div>
-
-
-      <div class="form-group">
-        <label for="recipient-name" class="control-label">Descrizione:</label>
-        {{ form_row(form.descrizione, {'attr': {'class': 'form-control','id': 'recipient-name' }}) }}
-      </div>
-
-       <div class="modal-footer">
-        {{ form_row(form.save, {'attr': {'class': 'btn btn-secondary btn-xs', 'id': 'recipient-name', 'type': 'button' }}) }}
-        <button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Chiudi</button>
-      </div>
-{{ form_end(form) }}
-
   </div>
 
- </div>
+  <hr>
+
+  {{ form_start(form, {'action': path('main_ricetta_crea')} )}}
+
+  <div class="form-group">
+    <label for="recipient-name" class="control-label">Nome:</label>
+    {{ form_row(form.nome, {'attr': {'class': 'form-control','id': 'recipient-name' }}) }}
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="recipient-name" class="control-label">Città:</label>
+    {{ form_row(form.citta, {'attr': {'class': 'form-control','id': 'recipient-name' }}) }}
+  </div>
+
+
+  <div class="form-group">
+    <label for="recipient-name" class="control-label">Descrizione:</label>
+    {{ form_row(form.descrizione, {'attr': {'class': 'form-control','id': 'recipient-name' }}) }}
+  </div>
+
+  <div class="modal-footer">
+    {{ form_row(form.save, {'attr': {'class': 'btn btn-secondary btn-xs', 'id': 'recipient-name', 'type': 'button' }}) }}
+    <button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Chiudi</button>
+  </div>
+  {{ form_end(form) }}
+</div>

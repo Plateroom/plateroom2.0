@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Plateroom{% endblock %}</title>
-        {% block stylesheets %}
-        <!-- stylesheet bootstrap -->
-        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-        <!-- stylesheet materialize -->
-        <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.min.css')}}">
-        <link href="{{asset('css/styleplateroom.css')}}" rel="stylesheet">
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Plateroom{% endblock %}</title>
+  {% block stylesheets %}
+    <!-- stylesheet bootstrap -->
+    {# <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}"> #}
+    <!-- stylesheet materialize -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.min.css')}}">
+    <link href="{{asset('css/styleplateroom.css')}}" rel="stylesheet">
+  {% endblock %}
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    </head>
-    <body>
+</head>
+<body>
 
- 
-        {% block header%}
 
-              <!-- Navigation -->
-<nav class="nav-wrapper">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Plateroom</a>
-    </div>
+  {% block header%}
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="divider-vertical"></li>
-        <li><a class="waves-effect waves-light btn-large">Categorie</a></li>  
-        
-        <li class="divider-vertical"></li>
-      <li>
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label for="cerca"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-      </li>
-    </ul>
+  <!-- Navigation -->
 
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+ <!--         <ul id="dropdown2" class="dropdown-content">
+            <li><a href="#!">tutte</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">primi</a></li>
+            <li><a href="#!">secondi</a></li>
+            <li><a href="#!">dessert</a></li>
+            <li><a href="#!">antipasti</a></li>
+            <li><a href="#!">piatto unico</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Richieste</a></li>
+          </ul> -->
+
+  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
       <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">{{ app.user.username }}</a></li>
-        <li><a href="{{ url('fos_user_profile_edit') }}">Modifica</a></li>
+        <li><a href="{{ path('main_user') }}">{{ app.user.username }}</a></li>
+        <li><a href="{{ url('fos_user_profile_edit') }}" class="modal-trigger">Modifica</a></li>
         <li class="divider"></li>
         <li><a href="{{ url('fos_user_security_logout')}}">Log out</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ app.user.username }}</a></li>
-      </ul>
 
-     {% else %}
-     <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-    {% endif %}
+  {% endif %}
+
+  <div class="navbar-fixed">
+
+  <nav>
+    <div class="nav-wrapper">
+      <!-- Brand and toggle get grouped for better mobile display -->
+ 
+        <a href="{{ path('main_home') }}" class="brand-logo" >Plateroom</a>
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ app.user.username }}</a></li>
+          {% else %}
+          <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+        {% endif %}
+        </ul>
 
 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+
+  <!--        <a class="dropdown-button waves-effect waves-light btn-large" href="#!" data-activates="dropdown2">Categorie</a>  -->
+          
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </nav>
+
+  <nav>
+                <form>
+              <div class="input-field">
+                <input id="search" type="search" required>
+                <label for="cerca"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+  </nav>
+
+</div>
 
 
   <!-- Modal-->
@@ -82,26 +101,36 @@
     </div>
   </div>
 
-        {% endblock %}
-    {% block body %}
-        {% endblock %}
+{% endblock %}
+{% block body %}
+{% endblock %}
 
-  {% block footer%}
-  <div class="row footer">
-    <div class="col-xs-12 col-md-12 text-center">
-      
-  <a href="{{ url('main_ricetta_crea') }}" class="waves-effect waves-circle waves-light btn-floating secondary-content">
-    <i class="material-icons">add</i>
-  </a>
-    </div>
+{% block footer%}
+
+
+<!-- Modal Trigger -->
+<div class="row footer">
+  <div class="col-xs-12 col-md-12 text-center">
+   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">   
+    <a href="{{ url('main_ricetta_crea') }}" class="waves-effect waves-circle waves-light btn-floating  btn-large btn modal-trigger">
+      <i class="material-icons">add</i>
+    </a>
   </div>
-  {% endblock %}
-        {% block javascripts %} 
-          <script src="/js/masonry.pkgd.min.js"></script>
-            <script src="/js/jquery-1.12.3.js"></script>
-            <script src="/js/bootstrap.min.js"></script>
-            <script src="/js/materialize.min.js"></script>
-        {% endblock %}
+</div>
+</div>
 
-    </body>
+
+<!-- Modal Structure -->
+<div id="modal-item" class="modal"></div>
+{% endblock %}
+
+{% block javascripts %} 
+  <script src="/js/jquery-1.12.3.js"></script>
+  <!-- <script src="/js/bootstrap.min.js"></script> -->
+  <script src="/js/materialize.min.js"></script>
+  <script src="/js/masonry.pkgd.min.js"></script>
+  <script src="/js/styleplateroom.js"></script>
+{% endblock %}
+
+</body>
 </html>
