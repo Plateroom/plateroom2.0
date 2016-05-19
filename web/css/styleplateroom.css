@@ -1,3 +1,14 @@
+body {
+  background: rgba(245, 240, 231, 0.13);
+  color: #666666;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
 /* navbar*/
 .nav-wrapper {
   width: 100%;
@@ -5,17 +16,13 @@
   background-color: #F5F0E7;
   padding-right: 20px !important;
   padding-left:20px !important;
-  border-bottom: 1px solid #E6E5E5;
   height: 52px;
 
 }
 
 
-.navbar-brand {
-    margin-left: 0px !important;
-    padding-left: 30px !important;
-    padding-right: 20px !important;
-    color: #748F80 !important;
+.brand-logo {
+    color: #26A69A !important;
 }
 
 .navbar-nav > li > a {
@@ -75,7 +82,13 @@ nav .input-field label i {
   color: #F57474 !important;
 }
 
+nav {
+  background-color: #ffffff;
+}
 
+nav ul a {
+  color: #26A69A;
+}
 
 /*masonry */
 .grid {
@@ -87,3 +100,4 @@ nav .input-field label i {
   width: 18%;
   margin: 1%;
 }
+

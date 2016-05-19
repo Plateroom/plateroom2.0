@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-    <link href="/css/styleplateroom.css" rel="stylesheet">
-</head>
-<body>
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+
     {% trans_default_domain 'FOSUserBundle' %}
 
     {% block fos_user_content %}
@@ -13,15 +8,111 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <div class="page-login">
+
+
+    <h1 class="title">Login</h1>
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+      <div class="input-container">
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
+        <label for="Username">{{ 'security.login.username'|trans }}</label>
+      </div>
+      <div class="input-container">
+        <input type="password" id="password" name="_password" required="required" />
+        <label for="Password">{{ 'security.login.password'|trans }}</label>
+      </div>
+    <div class="input-container">
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+    </div>
+      <div class="button-container">
+        <button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" /><span>Entra</span></button>
+      </div>
+      <div class="footer"><a href="{{ url('fos_user_resetting_request') }}" id="dimenticata">Dimenticato la password?</a></div>
+
+    </form>
+<!--
+  <div class="card alt" href="{{ url('fos_user_registration_register')}}">
+    <div class="toggle"></div>
+    <h1 class="title">Registrati
+      <div class="close"></div>
+    </h1>
+    <form>
+      <div class="input-container">
+        <input type="text" id="username" required="required"/>
+        <label for="Username">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="Password" required="required"/>
+        <label for="Password">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="Repeat Password" required="required"/>
+        <label for="Repeat Password">Repeat Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button><span>Next</span></button>
+      </div>
+    </form>-->
+ 
+ 
+
+
+
+
+
+
+        
+ <!--           <form class="col s12" action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="row">
+                <h1 class= "center">Login<br>Plateroom</h1>
+                
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="username" type="text" class="validate" value="{{ last_username }}" required="required"> -->
+          <!--<label for="first_name">Username</label>-->
+ <!--               </div>
+                <div class="input-field col s6">
+                    <input class="password" id="password" type="password" name="_password" placeholder= "Password"required="required" /> -->
+          <!--<label for="password">Password</label>-->
+ <!--               </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <p>
+                    <input type="checkbox" id="remember" name="_remember_me" value="on" /> <label for="remember">Remember Me</label>
+                    </p>
+                </div>
+            </div>
+          <div class="row">
+            <div class="input-field col s12">
+            <button>
+              <input type="submit" class="bottonelog" id="_submit" name="_submit"  value="{{ 'Login'|trans }}" />
+            </button>
+            </div>
+          </div>
+          <ul>
+            <li><a href="{{ url('fos_user_registration_register') }}" id="registrazione">Registrati</a></li>
+
+            <li><a href="{{ url('fos_user_resetting_request') }}" id="dimenticata">Password dimenticata?</a></li>
+            </ul>
+            </form>
+            <p id="riga1">Creando un account, accetti i Termini di servizio, le Norme sulla</p>
+            <p id="riga2">privacy e l'utilizzo dei cookie di Plateroom</p> -->
+
+
+ <!--   <div class="page-login">
         <header>
             <strong> Plateroom  </strong> utilizza i cookie per offrirti la migliore esperienza possibile. <strong> Ulteriori info </strong>Ok!
         </header>
 
-        <div class="form Allcontenuto">
-            <div id="circle">
-                <span class="glyphicon glyphicon-asterisk" id="asterisco" style="color: #748F80; font-size: 250%; margin: 20% 0 0 0; padding-left: 21%;"> </span>
-            </div>
+  
             <form class ="login" action="{{ path("fos_user_security_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
@@ -65,7 +156,10 @@
         <div class="fondo-pagina">
             <p class="privacy">Privacy e Termini</p> <p class="privacy"> &nbsp &nbsp &nbsp Info e Contatti</p>
         </div>
-    </div>
+    </div> -->
+
     {% endblock fos_user_content %}
-</body>
-</html>
+
+
+
+

@@ -13,8 +13,7 @@ main_plate:
 main_plate_crea:
     path:     /plate/crea/{id}
     defaults: { _controller: MainBundle:Plate:create }
-    # requirements:
-    #     id: \+d
+
 
 
 main_plate_lista:

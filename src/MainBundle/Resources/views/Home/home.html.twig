@@ -18,9 +18,10 @@
               <li>{{ plate.citta.nome }}</li>
             {% endfor %}
           </ul>
-          <p><!-- Modal Trigger -->
-           <!-- <a href="{{ url('main_ricetta', {id: ricetta.id})}}">Scopri</a> -->
-          </p>
+          <!-- Modal Trigger -->
+          <p>
+           <a href="{{ url('main_ricetta', {id: ricetta.id})}}">Scopri</a>
+          </p> 
           <p>Richieste {{ ricetta.plateRicetta|length + 1 }}</p>
         </div>
         <div class="card-reveal">
@@ -28,16 +29,16 @@
             {{ ricetta.nome }} <i class="material-icons right">close</i>
           </span>
           <p>ingredienti principali</p>                    
-                    <div class="collection">
-                      <a href="#!" class="collection-item">Test</a>
-                      <a href="#!" class="collection-item active">Test</a>
-                      <a href="#!" class="collection-item">Test</a>
-                      <a href="#!" class="collection-item">Test</a>
-                    </div>
-            </div>
-            </div>
+              <div class="collection">
+                <a href="#!" class="collection-item">Test</a>
+                <a href="#!" class="collection-item active">Test</a>
+                <a href="#!" class="collection-item">Test</a>
+                <a href="#!" class="collection-item">Test</a>
+              </div>
         </div>
-      </div>
+        </div>
+
     {% endfor %}
-  </div>
+    </div>
+  
 {% endblock %}

@@ -1,4 +1,10 @@
-<div class="modal-header">
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+
+
+<!--<div class="modal-header">
   <span class="modal-action modal-close" aria-hidden="true">&times;</span>
   <h4 class="modal-title" id="gridSystemModalLabel">{{ ricetta.nome }}</h4>
 </div>
@@ -11,29 +17,33 @@
         <div class="panel-body"></div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
 
-      <div class="row">
+      <div class="container">
         <div class="col s12 m7">
           <div class="card">
+            <span class="card-title">{{ ricetta.nome }}</span>
             <div class="card-image">
-              <img src="images/sample-1.jpg">
+              <img src="{{ vich_uploader_asset(ricetta, 'imageFile') }}" alt="{{ ricetta.imageFile }}">{{ ricetta.imageFile }}
               <span class="card-title">{{ ricetta.nome }}</span>
             </div>
             <div class="card-content">
                     <div class="collection">
-                      <a href="#!" class="collection-item">Alvin</a>
-                      <a href="#!" class="collection-item active">Alvin</a>
-                      <a href="#!" class="collection-item">Alvin</a>
-                      <a href="#!" class="collection-item">Alvin</a>
+                      <a href="#!" class="collection-item">Pasta</a>
+                      <a href="#!" class="collection-item active">Fagioli</a>
+                      <a href="#!" class="collection-item">Cipolla</a>
+                      <a href="#!" class="collection-item">Tonno</a>
                     </div>
             </div>
             <div class="card-action">
-              <a href="#">This is a link</a>
+              <a href="{{ path('main_plate_crea', {id: ricetta.id})}}">Richiedi</a>
             </div>
           </div>
         </div>
       </div>
+
+
+{% endblock %}

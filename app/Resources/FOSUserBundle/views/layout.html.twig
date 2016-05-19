@@ -2,10 +2,19 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.min.css')}}">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+    <link href="/css/login.css" rel="stylesheet">
 </head>
 <body>
     {% block body %}
-
+<div class="pen-title">
+  <h1><a href="{{ path('main_home') }}" class="brand-logo" >Plateroom</h1>
+</div>
+<div class="container">
+  <div class="card"></div>
+  <div class="card">
 
     {% if app.request.hasPreviousSession %}
     {% for type, messages in app.session.flashbag.all() %}
@@ -21,6 +30,15 @@
         {% block fos_user_content %}
         {% endblock fos_user_content %}
     </div>
+     </div>
+      </div>
+       
+
     {% endblock body %}
+        {% block javascripts %} 
+  <script src="/js/jquery-1.12.3.js"></script>
+  <script src="/js/materialize.min.js"></script>
+  <script src="/js/styleplateroom.js"></script>
+{% endblock %}
 </body>
 </html>
